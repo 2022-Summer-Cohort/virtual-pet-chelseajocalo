@@ -13,17 +13,15 @@ public class VirtualPet {
         this.hungerLevel = hungerLevel;
         this.boredomLevel = boredomLevel;
     }
-// put three 3 methods
-    public boolean tooHungry() {
-        if(getHungerLevel()>=5) {
-            return true;
-        }
-        return false;
+    public void status() {
+        System.out.print("Boredom Level = " + getBoredomLevel() + ".");
+        System.out.print(" Hunger Level = " + getHungerLevel() + ".");
+        System.out.println(" Thirst Level = " + getThirstLevel() + ".");
     }
-    public void play(){
-        boredomLevel -=2;
-        System.out.println("Thanks for playing with me.");
+    public void greeting(){
+        System.out.println("Hello! My name is " + name + ". Please take care of me!");
     }
+
     public boolean tooBored() {
         if(getBoredomLevel()>=4) {
             System.out.println("I'm too bored. Play with me.");
@@ -43,9 +41,7 @@ public class VirtualPet {
         }
         return true;
     }
-    public void greeting(){
-        System.out.println("Hello! My name is " + name + ". Please take care of me!");
-    }
+
     public void feed() {
         hungerLevel -= 2;
         System.out.println("Thanks for the snack.");
@@ -54,7 +50,11 @@ public class VirtualPet {
         thirstLevel -= 2;
         System.out.println("Thanks for the drink.");
     }
-    //tick method
+    public void play(){
+        boredomLevel -=2;
+        System.out.println("Thanks for playing with me.");
+    }
+
     public void tick() {
         thirstLevel += 1;
         hungerLevel += 1;
@@ -65,7 +65,6 @@ public class VirtualPet {
         }
     }
 
-    //getter methods
     public String getName() {
         return name;
     }
@@ -85,11 +84,7 @@ public class VirtualPet {
         System.out.println("Thanks for playing! Goodbye!");
     }
 
-    public void status() {
-        System.out.print("Boredom Level = " + getBoredomLevel() + ".");
-        System.out.print(" Hunger Level = " + getHungerLevel() + ".");
-        System.out.println(" Thirst Level = " + getThirstLevel() + ".");
-    }
+
 
     public void tickNoPlay() {
         thirstLevel += 1;

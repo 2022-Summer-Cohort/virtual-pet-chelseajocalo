@@ -32,7 +32,7 @@ public class VirtualPetTest {
     public void hungerLevelShouldDecreaseWhenFed() {
         VirtualPet underTest = new VirtualPet("Lollipop", 3,4,5);
         underTest.feed();
-        assertEquals(3, underTest.getHungerLevel());
+        assertEquals(2, underTest.getHungerLevel());
     }
     @Test
     public void levelsShouldIncreaseAfterTick() {

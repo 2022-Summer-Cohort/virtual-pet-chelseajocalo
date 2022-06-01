@@ -8,13 +8,12 @@ public class VirtualPetApplication {
 
         VirtualPetApplication myGame = new VirtualPetApplication();
         myGame.gameLoop();
-        //Interact with a VirtualPet object in this method
 
     }
 
     public void gameLoop() {
         Scanner input = new Scanner(System.in);
-        VirtualPet lollipop = new VirtualPet("Lollipop", 4, 5, 3);
+        VirtualPet lollipop = new VirtualPet("Lollipop", 3, 4, 5);
         lollipop.greeting();
 
 
@@ -57,47 +56,7 @@ public class VirtualPetApplication {
         if(!lollipop.isAlive()) {
             System.out.println("Your pet is dead.");
         }
-
-
-
-
-
-
-
-
-
-
-
-
-//            String nextTask = input.nextLine();
-//            while(lollipop.isAlive()) {
-//                if(nextTask.equals("play")){
-//                    lollipop.play();
-//                    System.out.println("Thanks for playing.");
-//                }
-//                if(nextTask.equals("feed")) {
-//                    lollipop.feed();
-//                    System.out.println("Thanks for feeding me.");
-//                }
-//                if(nextTask.equals("drink")) {
-//                    lollipop.giveDrink();
-//                    System.out.println("Thanks for feeding me.");
-//                }
-//                if(lollipop.tooHungry()){
-//                    System.out.println("I'm too hungry. Please feed me now.");
-//                    String hungry = input.nextLine();
-//                        if(!hungry.equals("feed")) {
-//                            System.out.println("No. I asked for food.");
-//                        }
-//                        if(hungry.equals("feed")) {
-//                            System.out.println("That's much better, thank you!");
-//                            break;
-//                        }
-//                }
-//            }
-
-
-
+        
         }
 
 
