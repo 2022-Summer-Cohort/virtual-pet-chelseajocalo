@@ -21,14 +21,7 @@ public class VirtualPet {
         return false;
     }
     public void play(){
-//    if(getHungerLevel()>=5){
-//        System.out.println("I am not playing until I get a snack.");
-//    }
-//    else if(getHungerLevel()<5) {
-//        boredomLevel -= 2;
-//        System.out.println("Thanks for playing with me.");
-//    }
-
+        boredomLevel -=2;
         System.out.println("Thanks for playing with me.");
     }
     public boolean tooBored() {

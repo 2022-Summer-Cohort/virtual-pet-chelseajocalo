@@ -25,7 +25,7 @@ public class VirtualPetTest {
     public void thirstLevelShouldDecreaseWhenWatered(){
         VirtualPet underTest = new VirtualPet("Lollipop", 3, 4, 5);
         underTest.giveDrink();
-        assertEquals(2, underTest.getThirstLevel());
+        assertEquals(1, underTest.getThirstLevel());
     }
 
     @Test
