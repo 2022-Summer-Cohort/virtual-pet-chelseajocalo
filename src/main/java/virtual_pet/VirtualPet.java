@@ -3,17 +3,20 @@ package virtual_pet;
 public class VirtualPet {
 
     private String name;
+    private String image;
     private int thirstLevel;
     private int hungerLevel;
     private int boredomLevel;
 
-    public VirtualPet(String name, int thirstLevel, int hungerLevel, int boredomLevel) {
+    public VirtualPet(String name, String image, int thirstLevel, int hungerLevel, int boredomLevel) {
         this.name = name;
+        this.image = image;
         this.thirstLevel = thirstLevel;
         this.hungerLevel = hungerLevel;
         this.boredomLevel = boredomLevel;
     }
     public void status() {
+        System.out.print(name + image + ": ");
         System.out.print("Boredom Level = " + getBoredomLevel() + ".");
         System.out.print(" Hunger Level = " + getHungerLevel() + ".");
         System.out.println(" Thirst Level = " + getThirstLevel() + ".");
@@ -24,7 +27,6 @@ public class VirtualPet {
 
     public boolean tooBored() {
         if(getBoredomLevel()>=4) {
-            System.out.println("I'm too bored. Play with me.");
             return true;
         }
         return false;
@@ -33,7 +35,7 @@ public class VirtualPet {
         if(getThirstLevel() > 8) {
             return false;
         }
-        else if(getHungerLevel() > 10) {
+        else if(getHungerLevel() > 15) {
             return false;
         }
         else if(getBoredomLevel() > 15) {
@@ -43,27 +45,31 @@ public class VirtualPet {
     }
 
     public void feed() {
-        hungerLevel -= 2;
-        System.out.println("Thanks for the snack.");
+        hungerLevel -= 3;
+
     }
     public void giveDrink() {
         thirstLevel -= 2;
-        System.out.println("Thanks for the drink.");
+
     }
     public void play(){
         boredomLevel -=2;
-        System.out.println("Thanks for playing with me.");
+        hungerLevel +=1;
+
     }
 
     public void tick() {
         thirstLevel += 1;
         hungerLevel += 1;
         boredomLevel += 1;
-        if(getHungerLevel()>=7) {
-            System.out.println("Your pet ate your shoes. Try to feed him sooner next time.");
-            hungerLevel = hungerLevel - 3;
+        if(this.hungerLevel > 10) {
+            System.out.println(this.getName() + " may need to be fed.");
         }
-    }
+        if(this.thirstLevel > 8) {
+            System.out.println(this.getName() + " may need a drink.");
+        }
+        }
+
 
     public String getName() {
         return name;
@@ -80,15 +86,6 @@ public class VirtualPet {
     public int getBoredomLevel() {
         return boredomLevel;
     }
-    public void quitGame() {
-        System.out.println("Thanks for playing! Goodbye!");
-    }
 
 
-
-    public void tickNoPlay() {
-        thirstLevel += 1;
-        hungerLevel += 1;
-
-    }
 }

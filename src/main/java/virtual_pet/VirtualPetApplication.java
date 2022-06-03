@@ -13,54 +13,95 @@ public class VirtualPetApplication {
 
     public void gameLoop() {
         Scanner input = new Scanner(System.in);
-        VirtualPet lollipop = new VirtualPet("Lollipop", 3, 4, 5);
-        lollipop.greeting();
+        VirtualPet lollipop = new VirtualPet("Lollipop", "\uD83D\uDC36", 3, 4, 5);
+        VirtualPet buddy = new VirtualPet("Buddy", "\uD83D\uDC15", 2, 4, 3);
+        VirtualPet elphie = new VirtualPet("Elphie", "\uD83D\uDC31", 1, 4, 2);
+        VirtualPetShelter myShelter = new VirtualPetShelter();
+        myShelter.surrenderPet(lollipop);
+        myShelter.surrenderPet(buddy);
+        myShelter.surrenderPet(elphie);
 
 
-        do  {
-            lollipop.status();
-            System.out.println("What would you like to do next? Type feed, drink, or play. Press Q at any time to quit. Type status to see what I need.");
-            String task = input.nextLine();
-            if(task.equalsIgnoreCase("Q")) {
-                lollipop.quitGame();
+        while (myShelter.shelterIsOpen()) {
+            myShelter.welcomeMenu();
+            String ask = input.nextLine();
+            if (ask.equalsIgnoreCase("adopt")) {
+                myShelter.adopt();
                 break;
             }
-            if (task.equals("feed")) {
-                lollipop.feed();
-            }
-            if (task.equals("drink")) {
-                lollipop.giveDrink();
-            }
-            if (task.equals("play")) {
-                lollipop.play();
-            }
-            if(lollipop.tooBored()) {
-                String bored = input.nextLine();
-                if (bored.equals("play")) {
-                    lollipop.tick();
-                    lollipop.play();
-                    continue;
-                }
-                else if (!bored.equals("play")) {
-                    System.out.println("No. I want to play.");
-                    lollipop.tickNoPlay();
-                    continue;
-
-                }
+            if (ask.equalsIgnoreCase("surrender")) {
+                myShelter.surrender();
+                
                 break;
+            }
+            if(ask.equalsIgnoreCase("q")){
+                myShelter.quitGame();
+                break;
+            }
+            if (ask.equalsIgnoreCase("volunteer")) {
+
+                myShelter.petsStatus();
+                for (int i = 0; i < 20; i++) {
+                    String task = input.nextLine();
+                    if (task.equals("feed")) {
+                        System.out.println("Who would you like to feed? Type a pet's name or all.");
+                        String feedWho = input.nextLine();
+                        if (feedWho.equalsIgnoreCase("all")) {
+                            myShelter.feedAllPets();
+                        } else {
+                            myShelter.feedOnePet(feedWho);
+                        }
+                        myShelter.petsStatus();
+                    }
+                    if (task.equals("drink")) {
+                        System.out.println("Which pet are you watering? Type all or type one pet's name.");
+                        String waterWho = input.nextLine();
+                        if (waterWho.equalsIgnoreCase("all")) {
+                            myShelter.drinkAllPets();
+                        } else {
+                            myShelter.waterOnePet(waterWho);
+                        }
+                        myShelter.petsStatus();
+                    }
+                    if (task.equals("play")) {
+                        System.out.println("Who do you want to play with? Type all or type one pet's name.");
+                        String playWho = input.nextLine();
+                        if(playWho.equalsIgnoreCase("all")) {
+                            myShelter.playAllPets();
+                        }
+                        else {
+                            myShelter.playOnePet(playWho);
+                        }
+                        myShelter.petsStatus();
+                    }
+                    if (task.equals("status")) {
+                        myShelter.petsStatus();
+                    }
+                    if (task.equalsIgnoreCase("Q")) {
+                        myShelter.quitGame();
+                        break;
+                    }
+                    if (i == 19) {
+                        System.out.println("We appreciate your help today! Come back and volunteer anytime!");
+                        break;
+                    }
+                    myShelter.petsTick();
+                    myShelter.petsPlayTogether();
                 }
 
-            lollipop.tick();
-        }
-        while(lollipop.isAlive());
-        if(!lollipop.isAlive()) {
-            System.out.println("Your pet is dead.");
-        }
-        
-        }
+
+            }
 
 
+        }
 
 
     }
+
+}
+
+
+
+
+
 
