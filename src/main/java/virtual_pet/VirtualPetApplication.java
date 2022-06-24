@@ -13,13 +13,15 @@ public class VirtualPetApplication {
 
     public void gameLoop() {
         Scanner input = new Scanner(System.in);
-        VirtualPet lollipop = new VirtualPet("Lollipop", "\uD83D\uDC36", 3, 4, 5);
-        VirtualPet buddy = new VirtualPet("Buddy", "\uD83D\uDC15", 2, 4, 3);
-        VirtualPet elphie = new VirtualPet("Elphie", "\uD83D\uDC31", 1, 4, 2);
+        VirtualPet lollipop = new RoboticDog("Lollipop",1,2,3,100.0,10);
+        VirtualPet buddy = new OrganicDog("Buddy", 3, 2,1,0);
+        VirtualPet elphie = new OrganicCat("Elphie",  1, 4, 2,1);
+        VirtualPet penny = new RoboticCat("Penny", 1,2,3,100.00,10);
         VirtualPetShelter myShelter = new VirtualPetShelter();
         myShelter.surrenderPet(lollipop);
         myShelter.surrenderPet(buddy);
         myShelter.surrenderPet(elphie);
+        myShelter.surrenderPet(penny);
 
 
         while (myShelter.shelterIsOpen()) {

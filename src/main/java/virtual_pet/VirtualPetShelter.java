@@ -35,7 +35,7 @@ public class VirtualPetShelter {
     public void surrender() {
         System.out.println("I'm sorry to hear that. Please tell us the name of your pet.");
         String surrenderedPetName = input.nextLine();
-        VirtualPet surrenderedPet = new VirtualPet(surrenderedPetName, "\uD83D\uDC31", 3, 4, 5);
+        VirtualPet surrenderedPet = new OrganicDog(surrenderedPetName, 3, 4, 5,2);
         surrenderPet(surrenderedPet);
         System.out.println("We will take very good care of " + surrenderedPetName + ". ");
     }

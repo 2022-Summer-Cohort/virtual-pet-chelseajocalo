@@ -1,22 +1,20 @@
 package virtual_pet;
 
-public class VirtualPet {
+public abstract class VirtualPet {
 
     private String name;
-    private String image;
     private int thirstLevel;
     private int hungerLevel;
     private int boredomLevel;
 
-    public VirtualPet(String name, String image, int thirstLevel, int hungerLevel, int boredomLevel) {
+    public VirtualPet(String name, int thirstLevel, int hungerLevel, int boredomLevel) {
         this.name = name;
-        this.image = image;
         this.thirstLevel = thirstLevel;
         this.hungerLevel = hungerLevel;
         this.boredomLevel = boredomLevel;
     }
     public void status() {
-        System.out.print(name + image + ": ");
+        System.out.print(name + ": ");
         System.out.print("Boredom Level = " + getBoredomLevel() + ".");
         System.out.print(" Hunger Level = " + getHungerLevel() + ".");
         System.out.println(" Thirst Level = " + getThirstLevel() + ".");
@@ -86,6 +84,11 @@ public class VirtualPet {
     public int getBoredomLevel() {
         return boredomLevel;
     }
-
+    public void decreaseBoredomLevel(){
+        boredomLevel--;
+    }
+    public void increaseHunger(){
+        hungerLevel++;
+    }
 
 }
