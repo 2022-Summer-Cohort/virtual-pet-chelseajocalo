@@ -37,4 +37,5 @@ public abstract class OrganicPet extends VirtualPet {
         decreaseBoredomLevel();
         decreaseSoilingRate();
     }
+
 }

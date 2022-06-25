@@ -33,7 +33,6 @@ public class VirtualPetApplication {
             }
             if (ask.equalsIgnoreCase("surrender")) {
                 myShelter.surrender();
-                
                 break;
             }
             if(ask.equalsIgnoreCase("q")){
@@ -41,6 +40,9 @@ public class VirtualPetApplication {
                 break;
             }
             if (ask.equalsIgnoreCase("volunteer")) {
+                myShelter.volunteer();
+
+            }
 
                 myShelter.petsStatus();
                 for (int i = 0; i < 20; i++) {
@@ -64,6 +66,9 @@ public class VirtualPetApplication {
                             myShelter.waterOnePet(waterWho);
                         }
                         myShelter.petsStatus();
+                    }
+                    if(task.equalsIgnoreCase("clean")){
+                        myShelter.clean();
                     }
                     if (task.equals("play")) {
                         System.out.println("Who do you want to play with? Type all or type one pet's name.");
@@ -100,7 +105,7 @@ public class VirtualPetApplication {
 
     }
 
-}
+
 
 
 

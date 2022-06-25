@@ -16,7 +16,6 @@ public class VirtualPetShelter {
             }
         }
     }
-
     public void adopt() {
         System.out.println("These are our available pets:");
         petsStatus();
@@ -42,16 +41,42 @@ public class VirtualPetShelter {
 
     public void feedAllPets() {
         for (VirtualPet thisPet : petsInShelter) {
-            thisPet.feed();
+            if(thisPet instanceof RoboticPet){
+                ((RoboticPet) thisPet).chargeBattery();
+            }
+            if(thisPet instanceof OrganicPet){
+                thisPet.feed();
+            }
         }
     }
 
     public void playAllPets() {
         for (VirtualPet thisPet : petsInShelter) {
-            thisPet.play();
+            if(thisPet instanceof OrganicDog){
+                ((OrganicDog) thisPet).walking();
+            }
+            if(thisPet instanceof OrganicCat){
+                ((OrganicCat) thisPet).chasingBirds();
+            }
+            if(thisPet instanceof RoboticDog){
+                ((RoboticDog) thisPet).walking();
+            }
+            if(thisPet instanceof RoboticCat){
+                ((RoboticCat) thisPet).chasingBirds();
+            }
         }
-
     }
+
+ public void clean(){
+        for (VirtualPet thisPet : petsInShelter) {
+            if(thisPet instanceof OrganicCat){
+                ((OrganicCat) thisPet).cleanLitter();
+            }
+            if(thisPet instanceof OrganicDog){
+                ((OrganicDog) thisPet).cleanCage();
+            }
+        }
+ }
 
     public void drinkAllPets() {
         for (VirtualPet thisPet : petsInShelter) {
@@ -61,13 +86,23 @@ public class VirtualPetShelter {
 
     public void petsStatus() {
         for (VirtualPet thisPet : petsInShelter) {
-            thisPet.status();
+           if(thisPet instanceof RoboticPet){
+               ((RoboticPet) thisPet).roboticStatus();
+           }
+           if(thisPet instanceof OrganicPet){
+               thisPet.status();
+           }
         }
     }
 
     public void petsTick() {
         for (VirtualPet thisPet : petsInShelter) {
-            thisPet.tick();
+            if(thisPet instanceof OrganicPet){
+                thisPet.tick();
+            }
+            if(thisPet instanceof RoboticPet){
+                ((RoboticPet) thisPet).tickRobotic();
+            }
         }
     }
 

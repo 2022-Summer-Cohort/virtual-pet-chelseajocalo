@@ -10,5 +10,8 @@ public class OrganicDog extends OrganicPet implements Walking{
         decreaseBoredomLevel();
         decreaseSoilingRate();
     }
-
+    public void cleanCage(){
+        decreaseSoilingRate();
+        System.out.println("Thanks for cleaning my cage!");
+    }
 }

@@ -11,4 +11,8 @@ public class OrganicCat extends OrganicPet implements ChasingBirds{
         decreaseSoilingRate();
         increaseHunger();
     }
+    public void cleanLitter(){
+        decreaseSoilingRate();
+        System.out.println("Thank you for cleaning my litter box!");
+    }
 }

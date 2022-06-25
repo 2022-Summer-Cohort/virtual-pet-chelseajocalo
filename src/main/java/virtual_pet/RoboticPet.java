@@ -29,4 +29,15 @@ public abstract class RoboticPet extends VirtualPet{
     public void oilPets(){
         oilLevel = 10;
     }
+    public void tickRobotic(){
+        oilLevel--;
+        decreaseBatteryLevel();
+    }
+    public void roboticStatus() {
+        System.out.print(getName() + ":");
+        System.out.print(" Hunger Level: " + getHungerLevel() + " ");
+        System.out.print("Boredom Level: " + getBoredomLevel());
+        System.out.println(" Battery Level: " + getBatteryLevel());
+
+    }
 }

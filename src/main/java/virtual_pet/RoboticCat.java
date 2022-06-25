@@ -12,4 +12,5 @@ public class RoboticCat extends RoboticPet implements ChasingBirds{
         decreaseOil();
         increaseHunger();
     }
+
 }
